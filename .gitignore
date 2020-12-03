@@ -62,3 +62,5 @@ iOSInjectionProject/
 
 !/Postman.app/Contents/Resources/app/node_modules/*
 
+!/Postman.app/Contents/*
+
