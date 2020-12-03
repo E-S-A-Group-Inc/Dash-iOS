@@ -58,3 +58,7 @@ fastlane/screenshots
 # https://github.com/johnno1962/injectionforxcode
 
 iOSInjectionProject/
+!/Postman.app/Contents/Frameworks/Squirrel.framework/*
+
+!/Postman.app/Contents/Resources/app/node_modules/*
+
