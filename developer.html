@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="sv" class="no-js logged-in ">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+        <title>Instagram Developer Documentation</title>
+
+        
+        <meta name="robots" content="noimageindex, noarchive">
+        <meta name="apple-mobile-web-app-status-bar-style" content="default">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="theme-color" content="#ffffff">
+        <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover">
+        <link rel="manifest" href="/data/manifest.json">
+
+        
+        
+        
+
+        <script type="text/javascript">
+        (function() {
+  var docElement = document.documentElement;
+  var classRE = new RegExp('(^|\\s)no-js(\\s|$)');
+  var className = docElement.className;
+  docElement.className = className.replace(classRE, '$1js$2');
+})();
+</script>
+        <script type="text/javascript">
+(function() {
+  if ('PerformanceObserver' in window && 'PerformancePaintTiming' in window) {
+    window.__bufferedPerformance = [];
+    var ob = new PerformanceObserver(function(e) {
+      window.__bufferedPerformance.push.apply(window.__bufferedPerformance,e.getEntries());
+    });
+    ob.observe({entryTypes:['paint']});
+  }
+
+  window.__bufferedErrors = [];
+  window.onerror = function(message, url, line, column, error) {
+    window.__bufferedErrors.push({
+      message: message,
+      url: url,
+      line: line,
+      column: column,
+      error: error
+    });
+    return false;
+  };
+  window.__initialData = {
+    pending: true,
+    waiting: []
+  };
+  function asyncFetchSharedData(extra) {
+    var sharedDataReq = new XMLHttpRequest();
+    sharedDataReq.onreadystatechange = function() {
+          if (sharedDataReq.readyState === 4) {
+            if(sharedDataReq.status === 200){
+              var sharedData = JSON.parse(sharedDataReq.responseText);
+              window.__initialDataLoaded(sharedData, extra);
+            }
+          }
+        }
+    sharedDataReq.open('GET', '/data/shared_data/', true);
+    sharedDataReq.send(null);
+  }
+  function notifyLoaded(item, data) {
+    item.pending = false;
+    item.data = data;
+    for (var i = 0;i < item.waiting.length; ++i) {
+      item.waiting[i].resolve(item.data);
+    }
+    item.waiting = [];
+  }
+  function notifyError(item, msg) {
+    item.pending = false;
+    item.error = new Error(msg);
+    for (var i = 0;i < item.waiting.length; ++i) {
+      item.waiting[i].reject(item.error);
+    }
+    item.waiting = [];
+  }
+  window.__initialDataLoaded = function(initialData, extraData) {
+    if (extraData) {
+      for (var key in extraData) {
+        initialData[key] = extraData[key];
+      }
+    }
+    notifyLoaded(window.__initialData, initialData);
+  };
+  window.__initialDataError = function(msg) {
+    notifyError(window.__initialData, msg);
+  };
+  window.__additionalData = {};
+  window.__pendingAdditionalData = function(paths) {
+    for (var i = 0;i < paths.length; ++i) {
+      window.__additionalData[paths[i]] = {
+        pending: true,
+        waiting: []
+      };
+    }
+  };
+  window.__additionalDataLoaded = function(path, data) {
+    if (path in window.__additionalData) {
+      notifyLoaded(window.__additionalData[path], data);
+    } else {
+      console.error('Unexpected additional data loaded "' + path + '"');
+    }
+  };
+  window.__additionalDataError = function(path, msg) {
+    if (path in window.__additionalData) {
+      notifyError(window.__additionalData[path], msg);
+    } else {
+      console.error('Unexpected additional data encountered an error "' + path + '": ' + msg);
+    }
+  };
+  
+})();
+</script><script type="text/javascript">
+
+/*
+ Copyright 2018 Google Inc. All Rights Reserved.
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+
+(function(){function g(a,c){b||(b=a,f=c,h.forEach(function(a){removeEventListener(a,l,e)}),m())}function m(){b&&f&&0<d.length&&(d.forEach(function(a){a(b,f)}),d=[])}function n(a,c){function k(){g(a,c);d()}function b(){d()}function d(){removeEventListener("pointerup",k,e);removeEventListener("pointercancel",b,e)}addEventListener("pointerup",k,e);addEventListener("pointercancel",b,e)}function l(a){if(a.cancelable){var c=performance.now(),b=a.timeStamp;b>c&&(c=+new Date);c-=b;"pointerdown"==a.type?n(c,
+a):g(c,a)}}var e={passive:!0,capture:!0},h=["click","mousedown","keydown","touchstart","pointerdown"],b,f,d=[];h.forEach(function(a){addEventListener(a,l,e)});window.perfMetrics=window.perfMetrics||{};window.perfMetrics.onFirstInputDelay=function(a){d.push(a);m()}})();
+</script>
+                <link rel="apple-touch-icon-precomposed" sizes="76x76" href="/static/images/ico/apple-touch-icon-76x76-precomposed.png/666282be8229.png">
+                <link rel="apple-touch-icon-precomposed" sizes="120x120" href="/static/images/ico/apple-touch-icon-120x120-precomposed.png/8a5bd3f267b1.png">
+                <link rel="apple-touch-icon-precomposed" sizes="152x152" href="/static/images/ico/apple-touch-icon-152x152-precomposed.png/68193576ffc5.png">
+                <link rel="apple-touch-icon-precomposed" sizes="167x167" href="/static/images/ico/apple-touch-icon-167x167-precomposed.png/4985e31c9100.png">
+                <link rel="apple-touch-icon-precomposed" sizes="180x180" href="/static/images/ico/apple-touch-icon-180x180-precomposed.png/c06fdb2357bd.png">
+                
+                    <link rel="icon" sizes="192x192" href="/static/images/ico/favicon-192.png/68d99ba29cc8.png">
+                
+            
+            
+                    <link rel="mask-icon" href="/static/images/ico/favicon.svg/fc72dd4bfde8.svg" color="#262626">
+                  
+                  <link rel="shortcut icon" type="image/x-icon" href="/static/images/ico/favicon.ico/36b3ee2d91ed.ico">
+                
+            
+            
+    <link rel="stylesheet" type="text/css" href="/static/styles/developer/developer-main.css/ade1a12cf03c.css"></link>
+
+            
+    
+    <script type="text/javascript" src="/static/scripts/jquery.js/a4e77326039e.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="/static/scripts/bluebar.js/203583927eba.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="/static/scripts/navigation.js/faf1d668dee8.js" crossorigin="anonymous"></script>
+</head>
+    <body class="sidebar-page" style="">
+        
+            <div class="root -cx-PRIVATE-Page__root -cx-PRIVATE-Page__root__">
+                
+                    <div class="page -cx-PRIVATE-Page__body -cx-PRIVATE-Page__body__">
+                        
+                            
+                                <header class="top-bar -cx-PRIVATE-NavBar__root -cx-PRIVATE-NavBar__root__">
+            <div class="wrapper -cx-PRIVATE-NavBar__wrapper -cx-PRIVATE-NavBar__wrapper__">
+                <hgroup class="wrapper -cx-PRIVATE-NavBar__logoGroup -cx-PRIVATE-NavBar__logoGroup__">
+                    <div class="logo -cx-PRIVATE-NavBar__logo -cx-PRIVATE-NavBar__logo__"><a href="/">Instagram</a></div>
+                    
+                </hgroup>
+
+                
+
+                <div class="top-bar-right account-state" id="top_bar_right">
+                    <ul class="top-bar-actions -cx-PRIVATE-NavBar__topBarActions -cx-PRIVATE-NavBar__topBarActions__" id="top_bar_actions">
+                        
+                        <li id="link_profile" class="link-profile has-dropdown -cx-PRIVATE-NavBar__profile -cx-PRIVATE-NavBar__profile__">
+                            <a style="display: none" href="/landalvskold" class="-cx-PRIVATE-NavBar__username -cx-PRIVATE-NavBar__username__">landalvskold</a>
+                            <a class="-cx-PRIVATE-NavBar__profilePic -cx-PRIVATE-NavBar__profilePic__" href="javascript:;">
+                                
+    <span class="img img-outset current-user-avatar" style="background-image: url(https://scontent-arn2-1.cdninstagram.com/v/t51.2885-19/s150x150/129024191_404531674074852_3083051071772550184_n.jpg?_nc_ht=scontent-arn2-1.cdninstagram.com&amp;_nc_ohc=Dud6MiGASXcAX_nwU-Y&amp;tp=1&amp;oh=96d0c702fd18733a020611474c152546&amp;oe=5FF0F373);">
+        <img src="https://scontent-arn2-1.cdninstagram.com/v/t51.2885-19/s150x150/129024191_404531674074852_3083051071772550184_n.jpg?_nc_ht=scontent-arn2-1.cdninstagram.com&amp;_nc_ohc=Dud6MiGASXcAX_nwU-Y&amp;tp=1&amp;oh=96d0c702fd18733a020611474c152546&amp;oe=5FF0F373" alt="" />
+        <b></b>
+    </span>
+
+                                <strong class="-cx-PRIVATE-NavBar__username -cx-PRIVATE-NavBar__username__">landalvskold</strong>
+                            </a>
+
+                            <div class="dropdown -cx-PRIVATE-NavBar__dropdown -cx-PRIVATE-NavBar__dropdown__">
+                                <i></i>
+
+                                <ul>
+                                    <li><a href="/landalvskold">Visa profil</a></li>
+                                    <li><a href="">Redigera profil</a></li>
+                                    <li><a href="">Profillänkar</a></li>
+                                    <li><form style="display:none" id="logout-form" action="/accounts/logout/" method="post">
+  <input type="hidden" name="csrfmiddlewaretoken" value="beCetHtgWRD8GPmLv9JdsFWLa9RXXkzT" />
+</form>
+<a id="logout-link" href="#">Logga ut</a>
+<script type="text/javascript">
+document.getElementById("logout-link").addEventListener("click",function(e) {
+  e.preventDefault();
+  var form = document.getElementById("logout-form");
+  form.submit();
+});
+</script></li>
+                                </ul>
+                            </div>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </header> <!-- .top-bar -->
+                            
+                        
+
+                        
+    <div class="main -cx-PRIVATE-Page__main -cx-PRIVATE-Page__main__">
+        <div class="sidebar -cx-PRIVATE-SidebarLayout__root -cx-PRIVATE-SidebarLayout__root__">
+            <div class="wrapper -cx-PRIVATE-SidebarLayout__navWrapper -cx-PRIVATE-SidebarLayout__navWrapper__">
+                <nav class="sidebar-nav -cx-PRIVATE-SidebarLayout__nav -cx-PRIVATE-SidebarLayout__nav__">
+                    <div class="sidebar-content -cx-PRIVATE-SidebarLayout__content -cx-PRIVATE-SidebarLayout__content__">
+                    
+    
+
+<ul>
+    <li class="active -cx-PRIVATE-Navigation__active -cx-PRIVATE-Navigation__active__">
+        <a class="-cx-PRIVATE-Navigation__navLink -cx-PRIVATE-Navigation__navLink__" href="/developer/">
+            
+            Overview
+            
+            <i class="disclosure"></i>
+            
+        </a>
+        
+    </li>
+    <li >
+        <a class="-cx-PRIVATE-Navigation__navLink -cx-PRIVATE-Navigation__navLink__" href="/developer/embedding/">
+            
+            Embedding
+            
+            <i class="disclosure"></i>
+            
+        </a>
+        
+    </li>
+    <li >
+        <a class="-cx-PRIVATE-Navigation__navLink -cx-PRIVATE-Navigation__navLink__" href="/developer/mobile-sharing/">
+            
+            Mobile Sharing
+            
+            <i class="disclosure"></i>
+            
+        </a>
+        
+    </li>
+    <li >
+        <a class="-cx-PRIVATE-Navigation__navLink -cx-PRIVATE-Navigation__navLink__" href="/developer/changelog/">
+            
+            Changelog
+            
+            <i class="disclosure"></i>
+            
+        </a>
+        
+    </li>
+    <li >
+        <a class="-cx-PRIVATE-Navigation__navLink -cx-PRIVATE-Navigation__navLink__" href="/about/legal/terms/api/">
+            
+            Platform Policy
+            
+            <i class="disclosure"></i>
+            
+        </a>
+        
+    </li>
+</ul>
+
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <div class="wrapper -cx-PRIVATE-SidebarLayout__contentWrapper -cx-PRIVATE-SidebarLayout__contentWrapper__">
+            <section class="nav-page-content -cx-PRIVATE-SidebarLayout__pageContent -cx-PRIVATE-SidebarLayout__pageContent__" role="main">
+                
+    
+    
+
+
+
+
+    <div class="instagram-graph-api-platform-warning">
+      <b><h2>UPDATE</h2></b>
+      <p>
+        The remaining Instagram Legacy API permission ("Basic Permission")
+        was disabled on June 29, 2020. As of June 29, third-party apps no
+        longer have access to the Legacy API. To avoid disruption of service
+        to your app and business, developers previously using the Legacy API
+        should instead rely on
+        <a href="https://developers.facebook.com/docs/instagram-basic-display-api">
+          <strong>Instagram Basic Display API</strong>
+        </a>
+        and
+        <a href="https://developers.facebook.com/docs/instagram-graph-api">
+          <strong>Instagram Graph API</strong>
+        </a>.
+        Please request approval for required permissions through the
+        <a href="https://developers.facebook.com/docs/apps/review/">
+          <strong>App Review</strong>
+        </a>
+        process.
+        <br/>
+        <br/>
+        <b><u>Legacy API user identifier available on Basic Display API until September 30, 2020</u></b>
+        <br/>
+        To assist with migration, we have temporarily made the unique user identifier
+        from the Legacy API - ig_id - available on Basic Display API. However, the
+        ig_id field will be deprecated on Basic Display API on September 30, 2020, so
+        please ensure you are using other fields (e.g. the Facebook "id" field) or your
+        own unique identifier for your users. See our developer documentation
+        <a href="https://developers.facebook.com/docs/instagram-basic-display-api#legacy-ids">
+        <strong>here</strong>
+        </a>
+        to learn more.
+        <br/>
+        <br/>
+        <b><u>User Token Generator</u></b>
+        <br/>
+        If you're only using the Legacy API to generate tokens in order to display your
+        Instagram Feed on a personal website, you can use the Instagram Basic Display API's
+        <a href="https://developers.facebook.com/docs/instagram-basic-display-api/overview#user-token-generator">
+          <strong>User Token Generator</strong>
+        </a>
+        to continue generating tokens. The User Token Generator does not require App Review,
+        but it will only work for your owned Instagram accounts (i.e. accounts for which you
+        know the login credentials). Refer to the developer documentation
+        <a href="https://developers.facebook.com/docs/instagram-basic-display-api/overview#user-token-generator">
+          <strong>here</strong>
+        </a>
+        to learn more. If you're using the Legacy API to display multiple accounts on your
+        website, then you must apply for permissions to
+        <a href="https://developers.facebook.com/docs/instagram-basic-display-api">
+          <strong>Instagram Basic Display API</strong>
+        </a>
+        via App Review. If you're using the Legacy API for any other use case, you must apply
+        for permissions on the
+        <a href="https://developers.facebook.com/docs/instagram-graph-api">
+          <strong>Instagram Graph API platform</strong>
+        </a>
+        via App Review.
+        <br/>
+        <br/>
+        <b><u>More Tips</u></b>
+        <br/>
+        For more guidance on getting through our App Review process, please see
+        <a href="https://developers.facebook.com/blog/post/2020/03/10/final-reminder-Instagram-legacy-api-platform-disabled-mar-31/">
+          <strong>this blog post</strong>
+        </a>.
+        For more tips and tools, check out our
+
+        <a href="https://developers.facebook.com/docs/apps/review/rejection-results-guide">
+          <strong>App Review Rejection Results Guide</strong>
+        </a>,
+        <a href="https://developers.facebook.com/docs/apps/review/common-rejection-reasons">
+          <strong>Common App Review</strong>
+        </a>
+        <a href="https://developers.facebook.com/docs/apps/review/common-rejection-reasons">
+          <strong>Rejection Reasons</strong>
+        </a>
+        and
+        <a href="https://developers.facebook.com/tools">
+          <strong>Developer Tools page</strong>
+        </a>.
+        We also encourage you to leverage the
+        <a href="https://developers.facebook.com/community">
+          <strong>Facebook Developer Community Forum</strong>
+        </a>
+        - it's a tremendously helpful resource for communicating and connecting with
+        developers across the world.
+        <br/>
+      </p>
+    </div>
+
+            </section>
+        </div> <!-- .main -->
+    </div> <!-- .main -->
+
+
+                    </div> <!-- .page -->
+
+                    
+                    <footer class="page-footer -cx-PRIVATE-Footer__root -cx-PRIVATE-Footer__root__" role="contentinfo">
+                        <div class="wrapper -cx-PRIVATE-Footer__wrapper -cx-PRIVATE-Footer__wrapper__">
+                            <nav class="-cx-PRIVATE-Footer__nav -cx-PRIVATE-Footer__nav__">
+                                <ul class="-cx-PRIVATE-Footer__navItems -cx-PRIVATE-Footer__navItems__">
+                                    <li><a href="/about/us/">Om oss</a></li>
+                                    <li><a href="https://help.instagram.com/">Support</a></li>
+                                    <li><a href="https://about.instagram.com/blog/">Press</a></li>
+                                    <li><a href="/developer/">API</a></li>
+                                    <li><a href="/about/jobs/">Arbete</a></li>
+                                    <li><a href="/legal/privacy/">Sekretess</a></li>
+                                    <li><a href="/legal/terms/">
+                                      
+                                          Användarvillkor
+                                      
+                                    </a></li>
+                                </ul>
+                            </nav>
+
+                            <p class="copyright -cx-PRIVATE-Footer__copyright -cx-PRIVATE-Footer__copyright__">&copy; 2020 Instagram</p>
+                        </div>
+                    </footer>
+                    
+                
+                <div id="reactModalMountPoint"></div>
+            </div> <!-- .root -->
+        
+        
+
+
+        
+            
+
+            
+        
+
+        <script type="text/javascript">
+(function(){
+  function normalizeError(err) {
+    var errorInfo = err.error || {};
+    var getConfigProp = function(propName, defaultValueIfNotTruthy) {
+      var propValue = window._sharedData && window._sharedData[propName];
+      return propValue ? propValue : defaultValueIfNotTruthy;
+    };
+    var windowUrl = window.location.href;
+    var errUrl = err.url || windowUrl;
+    return {
+      line: err.line || errorInfo.message || 0,
+      column: err.column || 0,
+      name: 'InitError',
+      message: err.message || errorInfo.message || '',
+      script: errorInfo.script || '',
+      stack: errorInfo.stackTrace || errorInfo.stack || '',
+      timestamp: Date.now(),
+      ref: windowUrl.indexOf('direct') >= 0 ? 'direct' : windowUrl,
+      deployment_stage: getConfigProp('deployment_stage', ''),
+      frontend_env: getConfigProp('frontend_env', 'prod'),
+      rollout_hash: getConfigProp('rollout_hash', ''),
+      is_prerelease: window.__PRERELEASE__ || false,
+      bundle_variant: getConfigProp('bundle_variant', null),
+      request_url: errUrl.indexOf('direct') >= 0 ? 'direct' : errUrl,
+      response_status_code: errorInfo.statusCode || 0
+    }
+  }
+  window.addEventListener('load', function(){
+    if (window.__bufferedErrors && window.__bufferedErrors.length) {
+      if (window.caches && window.caches.keys && window.caches.delete) {
+        window.caches.keys().then(function(keys) {
+          keys.forEach(function(key) {
+            window.caches.delete(key)
+          })
+        })
+      }
+      window.__bufferedErrors.map(function(error) {
+        return normalizeError(error)
+      }).forEach(function(normalizedError) {
+        var request = new XMLHttpRequest();
+        request.open('POST', '/client_error/', true);
+        request.setRequestHeader('Content-Type', 'application/json; charset=utf-8');
+        request.send(JSON.stringify(normalizedError));
+      })
+    }
+  })
+}());
+</script>
+    </body>
+</html>
